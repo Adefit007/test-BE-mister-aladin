@@ -20,4 +20,4 @@ git clone https://github.com/Adefit007/test-BE-mister-aladin.git
 go run main.go
 ```
 
-- buka aplikasi postman untuk test API
+- jalankan aplikasi postman untuk test API
