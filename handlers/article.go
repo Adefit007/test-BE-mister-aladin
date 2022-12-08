@@ -107,6 +107,7 @@ func (h *handlerArticle) UpdateArticles(w http.ResponseWriter, r *http.Request) 
 		w.WriteHeader(http.StatusBadRequest)
 		response := dto.ErrorResult{Code: http.StatusBadRequest,Message: err.Error()}
 		json.NewEncoder(w).Encode(response)
+		return
 	}
 
 	if (request.Author) != "" {
