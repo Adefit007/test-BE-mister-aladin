@@ -25,5 +25,5 @@ git clone https://github.com/Adefit007/test-BE-mister-aladin.git
 - jalankan code program
 
 ```bash
-dengan sintak go run main.go
+go run main.go
 ```
