@@ -53,6 +53,42 @@ func (h *handlerArticle) GetArticles(w http.ResponseWriter, r *http.Request)  {
 	json.NewEncoder(w).Encode(response)
 }
 
+func (h *handlerArticle) GetArticlesByAuthor(w http.ResponseWriter, r *http.Request)  {
+	w.Header().Set("Content-Type","application/json")
+
+	author, _ := mux.Vars(r)["author"]
+
+	articles, err := h.ArticleRepository.GetArticlesByAuthor(author)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	response := dto.SuccessResult{Code: http.StatusOK, Data: articles}
+	json.NewEncoder(w).Encode(response)
+}
+
+func (h *handlerArticle) GetArticlesByKeyword(w http.ResponseWriter, r *http.Request)  {
+	w.Header().Set("Content-Type","application/json")
+
+	keyword, _ := mux.Vars(r)["keyword"]
+
+	articles, err := h.ArticleRepository.GetArticlesByKeyword(keyword)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	response := dto.SuccessResult{Code: http.StatusOK, Data: articles}
+	json.NewEncoder(w).Encode(response)
+}
+
 func (h *handlerArticle) CreateArticles(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type","application/json")
 

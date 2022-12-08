@@ -9,6 +9,8 @@ import (
 type ArticleRepository interface {
 	FindArticles() ([]models.Article, error)
 	GetArticles(ID int) (models.Article, error)
+	GetArticlesByAuthor(author string) ([]models.Article, error)
+	GetArticlesByKeyword(keyword string) ([]models.Article, error)
 	CreateArticles(articles models.Article)(models.Article, error)
 	UpdateArticles(articles models.Article)(models.Article, error)
 	DeleteArticles(articles models.Article)(models.Article, error)
@@ -32,6 +34,20 @@ func (r *repository) FindArticles()([]models.Article,error)  {
 func (r *repository) GetArticles(ID int) (models.Article,error)  {
 	var articles models.Article
 	err := r.db.First(&articles, ID).Error
+
+	return articles,err
+}
+
+func (r *repository) GetArticlesByAuthor(author string) ([]models.Article,error)  {
+	var articles []models.Article
+	err := r.db.Where("author LIKE ?", "%"+author+"%").Find(&articles).Error
+
+	return articles,err
+}
+
+func (r *repository) GetArticlesByKeyword(keyword string) ([]models.Article,error)  {
+	var articles []models.Article
+	err := r.db.Where("body LIKE ? || title LIKE ?", "%"+keyword+"%","%"+keyword+"%").Find(&articles).Error
 
 	return articles,err
 }

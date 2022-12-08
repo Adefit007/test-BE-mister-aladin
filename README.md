@@ -28,6 +28,10 @@ go run main.go
 
 > Get a specific articles by id : `http://localhost:5000/api/v1/articles/1` with method `GET`
 
+> Get an articles by author : `http://localhost:5000/api/v1/articles/author` with method `GET`
+
+> Get an articles by Title and Body : `http://localhost:5000/api/v1/articles/masukkan keyword disini` with method `GET`
+
 > Update an articles by id : `http://localhost:5000/api/v1/articles/1` with method `PUT`
 
 > Delete an articles by id : `http://localhost:5000/api/v1/articles/1` with method `DELETE`
