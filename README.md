@@ -1,6 +1,6 @@
 # Test BE using Golang
 
-### cara menjalankan program
+## cara menjalankan program
 
 - download aplikasi go language di laptop atau di dekstop
 
