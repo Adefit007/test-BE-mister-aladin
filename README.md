@@ -21,3 +21,5 @@ go run main.go
 ```
 
 - jalankan aplikasi postman untuk test API
+
+> Post a new articles : `http://localhost:5000/api/v1/articles` with method `POST`
