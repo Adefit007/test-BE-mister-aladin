@@ -23,7 +23,11 @@ go run main.go
 - jalankan aplikasi postman untuk test API
 
 > Post a new articles : `http://localhost:5000/api/v1/articles` with method `POST`
+
 > Get the list of articles : `http://localhost:5000/api/v1/articles` with method `GET`
+
 > Get a specific articles by id : `http://localhost:5000/api/v1/articles/1` with method `GET`
+
 > Update an articles by id : `http://localhost:5000/api/v1/articles/1` with method `PUT`
+
 > Delete an articles by id : `http://localhost:5000/api/v1/articles/1` with method `DELETE`
